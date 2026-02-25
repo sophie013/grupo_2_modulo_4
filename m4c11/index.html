@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>★ URBAN D.N.A★</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💿</text></svg>">
+</head>
+<body>
+
+    <!-- Audio Principal -->
+    <audio id="audio-player" loop preload="auto" crossorigin="anonymous">
+        <source src="https://res.cloudinary.com/dj0cbwsvk/video/upload/v1771958300/PiKi_-_Kawaii_Kaiwai_-_Sono_Bisque_Doll_wa_Koi_wo_Suru_Season_2_ED__mp3.pm_rreyll.mp3" type="audio/mpeg">
+    </audio>
+
+    <!--  Fondo Desktop Interactivo -->
+    <div class="desktop-bg">
+        <div class="bg-layer bg-stars active"></div>
+        <div class="bg-layer bg-particles"></div>
+        <div class="bg-layer bg-glow" id="audio-glow"></div>
+        <div class="bg-layer bg-time" id="time-overlay"></div>
+    </div>
+
+    <!-- 💬 MSN - Ventana Flotante -->
+    <div class="msn-window" id="msn-window">
+        <div class="msn-title-bar" onmousedown="startDrag(event, 'msn-window')">
+            <span>💬 MSN - Mensajería</span>
+            <div class="msn-controls">
+                <button onclick="minimizeWindow('msn-window')" title="Minimizar">_</button>
+                <button onclick="maximizeWindow('msn-window')" title="Maximizar">□</button>
+                <button onclick="closeWindow('msn-window')" title="Cerrar">×</button>
+            </div>
+        </div>
+        <div class="msn-body">
+            <div class="chat-messages" id="chat-historial">
+                <p class="system-msg">★ ¡URBAN D.N.A! </p>
+                <p class="system-msg">ℹ Selecciona una categoría o agrega productos</p>
+            </div>
+        </div>
+        <!-- Handle de redimensión -->
+        <div class="resize-handle" onmousedown="startResizeFromHandle(event, 'msn-window')"></div>
+    </div>
+
+    <!-- 🎵 Winamp - Ventana Flotante debajo de MSN -->
+    <div class="winamp-float" id="winamp-window">
+        <div class="winamp-float-title" onmousedown="startDrag(event, 'winamp-window')">♪ Winamp 5.5</div>
+        <div class="winamp-float-controls">
+            <button onclick="minimizeWindow('winamp-window')" title="Minimizar">_</button>
+            <button onclick="closeWindow('winamp-window')" title="Cerrar">×</button>
+        </div>
+        <div class="winamp-float-body">
+            <div class="cd-cover-mini"></div>
+            <div class="winamp-float-track">Kawaii Kaiwai</div>
+            <div class="winamp-eq-mini">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="winamp-float-buttons">
+                <button id="play-btn-float">▶</button>
+                <button id="pause-btn-float">❚❚</button>
+            </div>
+        </div>
+        <!-- Handle de redimensión -->
+        <div class="resize-handle" onmousedown="startResizeFromHandle(event, 'winamp-window')"></div>
+    </div>
+
+    <!-- 🟦 Menú Inicio Windows -->
+    <div class="start-menu" id="start-menu">
+        <div class="start-menu-header">
+            <div class="start-menu-avatar">
+                <img src="https://i.pinimg.com/736x/e7/85/28/e78528e8c86ff6fc4e6a8a688ae90607.jpg" alt="Avatar">
+            </div>
+            <div class="start-menu-user">THUU_GRUPHITOX_DOX5</div>
+        </div>
+        <div class="start-menu-content">
+            <div class="start-menu-column">
+                <a href="#" class="start-menu-item">
+                    <span class="start-menu-icon">🏠</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="#" class="start-menu-item">
+                    <span class="start-menu-icon">🛍️</span>
+                    <span>Tienda</span>
+                </a>
+                <a href="#" class="start-menu-item">
+                    <span class="start-menu-icon">👗</span>
+                    <span>Colección</span>
+                </a>
+                <a href="#" class="start-menu-item">
+                    <span class="start-menu-icon">📦</span>
+                    <span>Pedidos</span>
+                </a>
+                <a href="#" class="start-menu-item">
+                    <span class="start-menu-icon">📞</span>
+                    <span>Contacto</span>
+                </a>
+            </div>
+            <div class="start-menu-column">
+                <a href="#" class="start-menu-item">
+                    <span class="start-menu-icon">🎵</span>
+                    <span>Música</span>
+                </a>
+                <a href="#" class="start-menu-item">
+                    <span class="start-menu-icon">🎮</span>
+                    <span>Juegos</span>
+                </a>
+                <a href="#" class="start-menu-item">
+                    <span class="start-menu-icon">⚙️</span>
+                    <span>Configuración</span>
+                </a>
+            </div>
+        </div>
+        <div class="start-menu-footer">
+            <span>★ URBAN D.N.A</span>
+        </div>
+        <div class="start-menu-windows">
+            <div class="start-menu-windows-title">Ventanas</div>
+            <div class="start-menu-windows-list">
+                <button class="window-toggle-btn active" id="btn-main-window" onclick="toggleWindowFromMenu('main-window')">
+                    <span>💿</span> URBAN D.N.A
+                </button>
+                <button class="window-toggle-btn active" id="btn-msn-window" onclick="toggleWindowFromMenu('msn-window')">
+                    <span>💬</span> MSN
+                </button>
+                <button class="window-toggle-btn active" id="btn-winamp-window" onclick="toggleWindowFromMenu('winamp-window')">
+                    <span>🎵</span> Winamp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📌 Barra de tareas estilo Windows -->
+    <div class="taskbar" id="taskbar">
+        <!-- Botón Menú Inicio -->
+        <button class="start-button" id="start-button" onclick="toggleStartMenu()">
+            
+            <span class="start-text">Inicio</span>
+        </button>
+        
+        <div class="taskbar-windows" id="taskbar-windows">
+            <button class="taskbar-item active" id="taskbar-main" onclick="toggleWindowFromMenu('main-window')">
+                <span>💿</span> URBAN D.N.A
+            </button>
+            <button class="taskbar-item" id="taskbar-msn" onclick="toggleWindowFromMenu('msn-window')">
+                <span>💬</span> MSN
+            </button>
+            <button class="taskbar-item" id="taskbar-winamp" onclick="toggleWindowFromMenu('winamp-window')">
+                <span>🎵</span> Winamp
+            </button>
+        </div>
+        <div class="taskbar-clock" id="taskbar-clock">00:00</div>
+    </div>
+
+    <!-- 🪟 Ventana Principal Estilo Windows Vista/98 Hybrid -->
+    <div class="window98-vista" id="main-window">
+
+        <!-- Title Bar Estilo Vista -->
+        <div class="title-bar" onmousedown="startDrag(event, 'main-window')">
+            <div class="title-bar-icon">💿</div>
+            <div class="title-bar-text">URBAN D.N.A</div>
+            <div class="title-bar-controls">
+                <button class="minimize" onclick="minimizeWindow('main-window')">_</button>
+                <button class="maximize" onclick="maximizeWindow('main-window')">□</button>
+                <button class="close" onclick="closeWindow('main-window')">×</button>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-brand"> URBAN D.N.A</div>
+                <ul class="navbar-menu">
+                    <li><a href="#" class="active"> Inicio</a></li>
+                    <li><a href="#"> Tienda</a></li>
+                    <li><a href="#"> Colección</a></li>
+                    <li><a href="#"> Pedidos</a></li>
+                    <li><a href="#"> Contacto</a></li>
+                </ul>
+                <div class="navbar-search">
+                    <input type="text" placeholder="Buscar...">
+                </div>
+            </div>
+        </nav>
+
+        <!-- Contenido Principal -->
+        <div class="window-content">
+
+            <!-- Sidebar Izquierdo -->
+            <aside class="sidebar-left">
+                
+                <!-- Usuario MSN -->
+                <div class="user-panel">
+                    <div class="user-avatar">
+                        <img src="https://i.pinimg.com/736x/e7/85/28/e78528e8c86ff6fc4e6a8a688ae90607.jpg" alt="Avatar">
+                        <span class="online-dot"></span>
+                    </div>
+                    <div class="user-details">
+                        <div class="user-name">THUU_GRUPHITOX_DOX5</div>
+                        <div class="user-status">En línea</div>
+                    </div>
+                </div>
+
+                <!-- Categorías -->
+                <div class="categories-panel">
+                    <div class="panel-title"> Categorías</div>
+                    <div class="category-list">
+                        <button onclick="filter('all')">★ Todo</button>
+                        <button onclick="filter('emo')"> EMO</button>
+                        <button onclick="filter('punk')"> Punk</button>
+                        <button onclick="filter('goth')"> Goth</button>
+                        <button onclick="filter('urban')"> Urban</button>
+                    </div>
+                </div>
+
+                <!-- Carrito -->
+                <div class="cart-panel">
+                    <div class="panel-title"> Carrito</div>
+                    <div class="cart-items" id="cart-items">
+                        <p class="cart-empty">Carrito vacío</p>
+                    </div>
+                    <div class="cart-info">
+                        <span>Items: <strong id="cart-count">0</strong></span>
+                        <span>Total: <strong id="cart-total">$0</strong></span>
+                    </div>
+                    <button class="checkout-btn" onclick="realizarPedidoWeb()">Comprar</button>
+                </div>
+
+            </aside>
+
+            <!-- Área Central -->
+            <main class="main-area">
+
+                <!-- Grid de Productos -->
+                <div class="products-panel">
+                    <div class="panel-header">
+                        <span>Catálogo de Productos más buscados </span>
+                    </div>
+                    <div class="products-grid" id="products-grid">
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+           
+            
+        </div>
+
+        <!-- Footer -->
+        <footer class="window-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4> URBAN D.N.A</h4>
+                    <p>Tu tienda urbana </p>
+                    <p>⭐⭐⭐⭐⭐</p>
+                </div>
+                <div class="footer-section">
+                    <h4> Envíos</h4>
+                    <p>A todo Chile</p>
+                    <p>2-5 días hábiles</p>
+                </div>
+                <div class="footer-section">
+                    <h4> Métodos de Pago</h4>
+                    <p>Transferencia</p>
+                    <p>WebPay</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <p>Fotolog: tribushop</p>
+                    <p>MSN: tribushop@hotmial.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <marquee scrollamount="4">★ 2007 - 2024 URBAN D.N.A Chile ★ Todos los derechos reservados ★ No al copy paste ★ Made with 💖 in Chile ★</marquee>
+            </div>
+        </footer>
+
+        <!-- Handle de redimensión -->
+        <div class="resize-handle" onmousedown="startResizeFromHandle(event, 'main-window')"></div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
