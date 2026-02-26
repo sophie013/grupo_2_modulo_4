@@ -1,0 +1,1740 @@
+/* ===== WINDOWS 98 + VISTA HYBRID - PASTEL AQUA ===== */
+
+:root {
+    --win98-gray: #c0c0c0;
+    --win98-dark: #808080;
+    --win98-light: #dfdfdf;
+    --win98-white: #ffffff;
+    --win98-blue: #000080;
+    --vista-aero: #e8f4fc;
+    --vista-blue: #a8d8ea;
+    --vista-cyan: #b4e8f0;
+    --vista-teal: #7ec8c8;
+    --vista-mint: #c8f0e8;
+    --pastel-aqua: #a8e6cf;
+    --pastel-cyan: #88d8b0;
+    --pastel-mint: #b8f0e0;
+    --pastel-blue: #a8d8ea;
+    --gradient-vista: linear-gradient(180deg, #f0f8ff 0%, #d4e9f7 50%, #e8f4fc 100%);
+    --gradient-aero: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(200,230,255,0.8) 100%);
+    --glass-effect: rgba(255,255,255,0.7);
+    --shadow-vista: 0 4px 15px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.1);
+    --glow-aqua: 0 0 15px rgba(136, 216, 176, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tahoma', 'Segoe UI', 'Verdana', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #1a3a4a;
+}
+
+/* 🌊 Fondo Desktop Oscuro con Estrellas */
+.desktop-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    /* Fondo oscuro con gradiente */
+    background: 
+        radial-gradient(ellipse at 20% 80%, rgba(40, 20, 60, 0.8) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(20, 40, 60, 0.8) 0%, transparent 50%),
+        linear-gradient(180deg, #0a0a12 0%, #0d1020 50%, #0a0a15 100%);
+}
+
+/* Capas del fondo */
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* 📌 Barra de tareas estilo Windows */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45px;
+    background: linear-gradient(180deg, #1a5a8a 0%, #0d3a5a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 1000;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+}
+
+.taskbar-windows {
+    display: flex;
+    gap: 5px;
+    flex: 1;
+}
+
+.taskbar-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taskbar-item:hover {
+    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+}
+
+.taskbar-item.active {
+    background: linear-gradient(180deg, rgba(43, 124, 200, 0.6) 0%, rgba(43, 124, 200, 0.4) 100%);
+    border-color: rgba(43, 124, 200, 0.8);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.taskbar-item span {
+    font-size: 14px;
+}
+
+.taskbar-clock {
+    color: #fff;
+    font-size: 12px;
+    background: rgba(0,0,0,0.2);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* 🟦 Botón Inicio Windows */
+.start-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: linear-gradient(180deg, #2b7cc8 0%, #1a5a8a 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+    transition: all 0.2s;
+    margin-right: 10px;
+}
+
+.start-button:hover {
+    background: linear-gradient(180deg, #3a9fe8 0%, #2b7cc8 100%);
+    transform: scale(1.05);
+}
+
+.start-icon {
+    font-size: 18px;
+}
+
+.start-text {
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* 🟦 Menú Inicio Estilo Windows */
+.start-menu {
+    position: fixed;
+    bottom: 60px;
+    left: 15px;
+    width: 350px;
+    background: linear-gradient(180deg, #1a5a8a 0%, #0d3a5a 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(43, 124, 200, 0.3);
+    z-index: 199;
+    display: none;
+    overflow: hidden;
+    animation: slideUp 0.2s ease;
+}
+
+.start-menu.active {
+    display: block;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.start-menu-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.start-menu-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    border: 2px solid rgba(255,255,255,0.5);
+    overflow: hidden;
+}
+
+.start-menu-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.start-menu-user {
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.start-menu-content {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+}
+
+.start-menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.start-menu-column:first-child {
+    flex: 1;
+}
+
+.start-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.start-menu-item:hover {
+    background: linear-gradient(90deg, rgba(43, 124, 200, 0.6) 0%, rgba(43, 124, 200, 0.3) 100%);
+}
+
+.start-menu-icon {
+    font-size: 20px;
+    width: 28px;
+    text-align: center;
+}
+
+.start-menu-footer {
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.start-menu-footer span {
+    color: #88d8b0;
+    font-size: 11px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.start-menu-windows {
+    padding: 10px 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.start-menu-windows-title {
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.start-menu-windows-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.window-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: linear-gradient(90deg, rgba(43, 124, 200, 0.4) 0%, rgba(43, 124, 200, 0.2) 100%);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.window-toggle-btn:hover {
+    background: linear-gradient(90deg, rgba(43, 124, 200, 0.6) 0%, rgba(43, 124, 200, 0.4) 100%);
+}
+
+.window-toggle-btn.active {
+    background: linear-gradient(90deg, rgba(136, 216, 176, 0.5) 0%, rgba(136, 216, 176, 0.3) 100%);
+    border-color: rgba(136, 216, 176, 0.6);
+}
+
+.window-toggle-btn span {
+    font-size: 14px;
+}
+
+/* 💬 MSN Ventana Flotante estilo Windows XP/Vista */
+.msn-window {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 280px;
+    min-width: 200px;
+    min-height: 150px;
+    max-width: 90vw;
+    max-height: 80vh;
+    background: linear-gradient(180deg, rgba(232, 244, 252, 0.95) 0%, rgba(200, 228, 244, 0.95) 100%);
+    border: 2px solid #3a7cb8;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 30px rgba(58, 124, 184, 0.3);
+    z-index: 100;
+    animation: windowFloat 6s ease-in-out infinite;
+    backdrop-filter: blur(10px);
+}
+
+/* Handle de redimensión para MSN */
+.msn-window .resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    cursor: se-resize;
+    background: linear-gradient(135deg, transparent 50%, rgba(58, 124, 184, 0.5) 50%);
+    border-radius: 0 0 12px 0;
+}
+
+@keyframes windowFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* 🎵 Winamp Flotante debajo de MSN */
+.winamp-float {
+    position: fixed;
+    top: 340px;
+    right: 20px;
+    width: 280px;
+    min-width: 200px;
+    min-height: 180px;
+    max-width: 90vw;
+    max-height: 80vh;
+    background: linear-gradient(135deg, rgba(168, 230, 207, 0.9) 0%, rgba(136, 216, 176, 0.85) 100%);
+    border: 2px solid #88d8b0;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 25px rgba(136, 216, 176, 0.3);
+    z-index: 100;
+    animation: windowFloat 6s ease-in-out infinite;
+    backdrop-filter: blur(10px);
+}
+
+/* Handle de redimensión para Winamp */
+.winamp-float .resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    cursor: se-resize;
+    background: linear-gradient(135deg, transparent 50%, rgba(136, 216, 176, 0.5) 50%);
+    border-radius: 0 0 12px 0;
+}
+
+.winamp-float-title {
+    background: linear-gradient(180deg, #5ab890 0%, #3a8870 100%);
+    color: #fff;
+    font-size: 11px;
+    padding: 6px 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    cursor: move;
+}
+
+.winamp-float-controls {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    display: flex;
+    gap: 3px;
+}
+
+.winamp-float-controls button {
+    width: 18px;
+    height: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+.winamp-float-controls button:first-child {
+    background: linear-gradient(180deg, #5ba3d4 0%, #3a8bc4 100%);
+}
+
+.winamp-float-controls button:last-child {
+    background: linear-gradient(180deg, #ff6b6b 0%, #d04040 100%);
+}
+
+.winamp-float-controls button:hover {
+    transform: scale(1.1);
+}
+
+.winamp-float-body {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.cd-cover-mini {
+    width: 50px;
+    height: 50px;
+    background: conic-gradient(from 0deg, #a8e6cf, #88d8b0, #b4f8c8, #7ec8c8, #a8e6cf);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    animation: spin 3s linear infinite;
+    box-shadow: 0 0 15px rgba(136, 216, 176, 0.8);
+    border: 3px solid rgba(255,255,255,0.8);
+}
+
+.winamp-float-track {
+    color: #2a6a5a;
+    font-size: 9px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.winamp-eq-mini {
+    display: flex;
+    gap: 2px;
+    height: 20px;
+    align-items: flex-end;
+    padding: 3px 6px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 4px;
+}
+
+.winamp-eq-mini span {
+    width: 4px;
+    background: linear-gradient(to top, #5ab890, #88d8b0, #a8e6cf);
+    border-radius: 2px;
+    animation: eq 0.5s ease-in-out infinite alternate;
+}
+
+.winamp-eq-mini span:nth-child(1) { height: 40%; animation-delay: 0s; }
+.winamp-eq-mini span:nth-child(2) { height: 70%; animation-delay: 0.1s; }
+.winamp-eq-mini span:nth-child(3) { height: 50%; animation-delay: 0.2s; }
+.winamp-eq-mini span:nth-child(4) { height: 80%; animation-delay: 0.15s; }
+.winamp-eq-mini span:nth-child(5) { height: 60%; animation-delay: 0.25s; }
+
+.winamp-float-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.winamp-float-buttons button {
+    background: linear-gradient(180deg, #fff 0%, #e8f8f4 100%);
+    border: 1px solid #88d8b0;
+    color: #2a6a5a;
+    padding: 5px 16px;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: all 0.2s;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.8);
+}
+
+.winamp-float-buttons button:hover {
+    background: linear-gradient(180deg, #a8e6cf 0%, #88d8b0 100%);
+    box-shadow: 0 0 10px rgba(136, 216, 176, 0.5);
+}
+
+.msn-title-bar {
+    background: linear-gradient(180deg, #4a9fe8 0%, #2b7cc8 100%);
+    padding: 6px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+}
+
+.msn-title-bar span {
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.msn-controls {
+    display: flex;
+    gap: 3px;
+}
+
+.msn-controls button {
+    width: 18px;
+    height: 16px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: linear-gradient(180deg, #f0f8ff 0%, #d0e8f8 100%);
+    border-radius: 2px;
+    font-size: 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.msn-controls button:last-child {
+    background: linear-gradient(180deg, #f08080 0%, #d04040 100%);
+    color: #fff;
+    font-weight: bold;
+}
+
+.msn-body {
+    padding: 10px;
+    background: #fff;
+    min-height: 80px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+/* Estrellas/puntos pequeños - como polvo flotante */
+.bg-stars {
+    background-image: 
+        radial-gradient(3px 3px at 5% 12%, rgba(47, 157, 220, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 15% 28%, rgba(0, 200, 255, 0.5) 50%, transparent 100%),
+        radial-gradient(3px 3px at 25% 45%, rgba(136, 216, 176, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 35% 8%, rgba(47, 157, 220, 0.5) 50%, transparent 100%),
+        radial-gradient(3px 3px at 45% 62%, rgba(0, 200, 255, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 55% 35%, rgba(136, 216, 176, 0.5) 50%, transparent 100%),
+        radial-gradient(3px 3px at 65% 78%, rgba(47, 157, 220, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 75% 22%, rgba(0, 200, 255, 0.5) 50%, transparent 100%),
+        radial-gradient(3px 3px at 85% 55%, rgba(136, 216, 176, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 95% 88%, rgba(47, 157, 220, 0.5) 50%, transparent 100%),
+        radial-gradient(2px 2px at 10% 72%, rgba(0, 200, 255, 0.5) 50%, transparent 100%),
+        radial-gradient(3px 3px at 20% 95%, rgba(136, 216, 176, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 30% 58%, rgba(47, 157, 220, 0.5) 50%, transparent 100%),
+        radial-gradient(3px 3px at 40% 18%, rgba(0, 200, 255, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 50% 82%, rgba(136, 216, 176, 0.5) 50%, transparent 100%),
+        radial-gradient(3px 3px at 60% 42%, rgba(47, 157, 220, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 70% 68%, rgba(0, 200, 255, 0.5) 50%, transparent 100%),
+        radial-gradient(3px 3px at 80% 15%, rgba(136, 216, 176, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 90% 38%, rgba(47, 157, 220, 0.5) 50%, transparent 100%),
+        radial-gradient(3px 3px at 98% 92%, rgba(0, 200, 255, 0.6) 50%, transparent 100%);
+    background-size: 300px 300px;
+    animation: floatDust 20s linear infinite;
+    z-index: 1;
+}
+
+@keyframes floatDust {
+    0% { 
+        transform: translateY(0) translateX(0);
+        opacity: 0.5;
+    }
+    25% { 
+        transform: translateY(-30px) translateX(15px);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: translateY(-15px) translateX(-10px);
+        opacity: 0.6;
+    }
+    75% { 
+        transform: translateY(-40px) translateX(8px);
+        opacity: 0.8;
+    }
+    100% { 
+        transform: translateY(0) translateX(0);
+        opacity: 0.5;
+    }
+}
+
+/* Capa de oscurecimiento + Vignette */
+.bg-gradient {
+    background: 
+        radial-gradient(ellipse at 50% 50%, transparent 30%, transparent 70%),
+        linear-gradient(180deg, 
+            rgba(10, 21, 37, 0.4) 0%, 
+            rgba(10, 21, 37, 0.2) 50%, 
+            rgba(10, 21, 37, 0.5) 100%);
+    animation: gradientShift 15s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { 
+        opacity: 1;
+    }
+    50% { 
+        opacity: 0.9;
+    }
+}
+
+/* Efecto Grain (ruido) estilo vintage */
+.bg-gradient::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    background: transparent url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23noise)" opacity="0.08"/></svg>');
+    background-size: 200px 200px;
+    animation: grainShift 0.5s steps(5) infinite;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+@keyframes grainShift {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-2%, -2%); }
+    20% { transform: translate(2%, 2%); }
+    30% { transform: translate(-1%, 2%); }
+    40% { transform: translate(2%, -1%); }
+    50% { transform: translate(-2%, 1%); }
+    60% { transform: translate(1%, -2%); }
+    70% { transform: translate(-1%, -1%); }
+    80% { transform: translate(1%, 1%); }
+    90% { transform: translate(2%, -2%); }
+}
+
+/* Rayos de luz (chromatic/hue effect) */
+.bg-gradient::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(105deg, 
+            transparent 0deg, 
+            transparent 20deg, 
+            rgba(136, 216, 176, 0.04) 20deg, 
+            rgba(136, 216, 176, 0.04) 22deg,
+            transparent 22deg,
+            transparent 40deg);
+    animation: rayRotate 40s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rayRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Capa de partículas flotantes */
+.bg-particles {
+    background-image: 
+        radial-gradient(circle at 15% 25%, rgba(136, 216, 176, 0.12) 0%, transparent 5%),
+        radial-gradient(circle at 85% 75%, rgba(0, 255, 255, 0.1) 0%, transparent 4%),
+        radial-gradient(circle at 45% 85%, rgba(168, 230, 207, 0.08) 0%, transparent 6%),
+        radial-gradient(circle at 25% 15%, rgba(255, 0, 128, 0.06) 0%, transparent 3%),
+        radial-gradient(circle at 75% 35%, rgba(0, 206, 209, 0.08) 0%, transparent 4%);
+    background-size: 150px 150px, 120px 120px, 180px 180px, 100px 100px, 140px 140px;
+    background-position: 0 0, 50px 30px, 100px 60px, 30px 90px, 80px 120px;
+    animation: particleFloat 25s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(0) translateX(0) scale(1); }
+    25% { transform: translateY(-30px) translateX(15px) scale(1.05); }
+    50% { transform: translateY(-60px) translateX(-10px) scale(1); }
+    75% { transform: translateY(-30px) translateX(20px) scale(0.95); }
+    100% { transform: translateY(0) translateX(0) scale(1); }
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(0) translateX(0) scale(1); }
+    25% { transform: translateY(-20px) translateX(10px) scale(1.05); }
+    50% { transform: translateY(-40px) translateX(-5px) scale(1); }
+    75% { transform: translateY(-20px) translateX(15px) scale(0.95); }
+    100% { transform: translateY(0) translateX(0) scale(1); }
+}
+
+/* Retro grid style City Pop */
+.bg-particles::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 49px,
+            rgba(136, 216, 176, 0.05) 49px,
+            rgba(136, 216, 176, 0.05) 50px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 49px,
+            rgba(136, 216, 176, 0.05) 49px,
+            rgba(136, 216, 176, 0.05) 50px
+        );
+    animation: gridPulse 8s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.5; }
+}
+
+/* Capa de glow que reacciona a la música */
+.bg-glow {
+    background: radial-gradient(ellipse at 50% 50%, transparent 30%, transparent 60%);
+    opacity: 0.1;
+    transition: opacity 1s ease, background 1.5s ease;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.bg-glow.active {
+    opacity: 0.55 !important;
+    background: radial-gradient(ellipse at 50% 50%, 
+        rgba(47, 157, 220, 0.28) 0%,
+        rgba(0, 200, 255, 0.2) 25%,
+        rgba(136, 216, 176, 0.12) 50%,
+        transparent 70%);
+    animation: musicPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+    0%, 100% { 
+        transform: scale(1) translateX(0);
+        opacity: 0.3;
+    }
+    25% {
+        transform: scale(1.03) translateX(5px);
+        opacity: 0.45;
+    }
+    50% { 
+        transform: scale(1.05) translateX(0);
+        opacity: 0.35;
+    }
+    75% {
+        transform: scale(1.03) translateX(-5px);
+        opacity: 0.45;
+    }
+}
+
+/* Estrellas que brillan con la música - siempre moviéndose como polvo */
+.bg-stars.active {
+    animation: floatDust 20s linear infinite, starsGlow 3s ease-in-out infinite;
+}
+
+@keyframes starsGlow {
+    0%, 100% { 
+        filter: brightness(1) blur(0px);
+        opacity: 0.6;
+    }
+    50% { 
+        filter: brightness(1.3) blur(0.5px);
+        opacity: 0.9;
+    }
+}
+
+/* Capa de tiempo (día/noche) */
+.bg-time {
+    pointer-events: none;
+    transition: opacity 1s ease;
+}
+
+/* Modo día - Más brillante */
+.bg-time.day {
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent 100%);
+    opacity: 0.6;
+}
+
+/* Modo noche - Más oscuro */
+.bg-time.night {
+    background: linear-gradient(180deg, 
+        rgba(0, 0, 0, 0.5) 0%, 
+        rgba(0, 0, 0, 0.3) 50%, 
+        rgba(0, 0, 0, 0.6) 100%);
+    opacity: 0.7;
+}
+
+/* Indicador de modo en corner */
+.desktop-bg::after {
+    content: '';
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    font-size: 10px;
+    color: #88d8b0;
+    z-index: 1000;
+    font-family: monospace;
+}
+
+/* 🪟 Ventana Principal Estilo Windows Vista/98 - Glassmorphism */
+.window98-vista {
+    position: fixed;
+    top: 5%;
+    left: calc(50% - 400px);
+    z-index: 50;
+    width: 900px;
+    min-width: 400px;
+    min-height: 300px;
+    max-width: 95vw;
+    max-height: 82vh;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(136, 216, 176, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    overflow-y: auto;
+    overflow-x: hidden;
+    animation: windowFadeIn 0.5s ease;
+}
+
+/* Handle de redimensión para ventana principal */
+.window98-vista .resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    cursor: se-resize;
+    background: linear-gradient(135deg, transparent 50%, rgba(136, 216, 176, 0.5) 50%);
+    border-radius: 0 0 20px 0;
+}
+
+@keyframes windowFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Title Bar Estilo Vista */
+.title-bar {
+    background: linear-gradient(180deg, #5ba3d4 0%, #3a8bc4 50%, #2a7bb4 100%);
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1a5a8a;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    cursor: move;
+    border-radius: 20px 20px 0 0;
+}
+
+.title-bar-icon {
+    font-size: 16px;
+    margin-right: 8px;
+}
+
+.title-bar-text {
+    flex: 1;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+
+.title-bar-controls {
+    display: flex;
+    gap: 3px;
+}
+
+.title-bar-controls button {
+    width: 24px;
+    height: 21px;
+    border: none;
+    border-radius: 12px;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 
+        inset 0 2px 4px rgba(255,255,255,0.4),
+        0 2px 4px rgba(0,0,0,0.2);
+    margin-left: 6px;
+    transition: all 0.2s;
+}
+
+.title-bar-controls .minimize {
+    background: linear-gradient(180deg, #5ba3d4 0%, #3a8bc4 100%);
+}
+
+.title-bar-controls .maximize {
+    background: linear-gradient(180deg, #88d8b0 0%, #5ab890 100%);
+}
+
+.title-bar-controls .close {
+    background: linear-gradient(180deg, #ff6b6b 0%, #d04040 100%);
+}
+
+.title-bar-controls button:hover {
+    transform: scale(1.1);
+    box-shadow: 
+        inset 0 2px 4px rgba(255,255,255,0.5),
+        0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Navigation Bar Estilo Web */
+.navbar {
+    background: linear-gradient(180deg, #a8e6cf 0%, #88d8b0 100%);
+    padding: 0;
+    border-bottom: 2px solid #5ab890;
+    box-shadow: 0 2px 10px rgba(136, 216, 176, 0.3);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+    max-width: 100%;
+}
+
+.navbar-brand {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a5a4a;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #1a5a4a;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 20px;
+    transition: all 0.2s;
+    background: rgba(255,255,255,0.3);
+    border: 1px solid transparent;
+}
+
+.navbar-menu li a:hover,
+.navbar-menu li a.active {
+    background: linear-gradient(180deg, #ffffff 0%, #e8f8f4 100%);
+    border-color: #5ab890;
+    box-shadow: 0 0 15px rgba(136, 216, 176, 0.5);
+    transform: translateY(-1px);
+}
+
+.navbar-search input {
+    padding: 6px 12px;
+    border: 1px solid #88d8b0;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.8);
+    font-size: 11px;
+    width: 150px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.navbar-search input:focus {
+    width: 180px;
+    border-color: #5ab890;
+    box-shadow: 0 0 10px rgba(136, 216, 176, 0.5);
+}
+
+/* Contenido de la Ventana */
+.window-content {
+    display: flex;
+    min-height: 500px;
+    padding: 10px;
+    gap: 10px;
+}
+
+/* Sidebar Izquierdo */
+.sidebar-left {
+    width: 240px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Panel de Usuario */
+.user-panel {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px;
+    background: linear-gradient(135deg, rgba(168, 230, 207, 0.9) 0%, rgba(200, 240, 220, 0.8) 100%);
+    border: 1px solid rgba(136, 216, 176, 0.5);
+    border-radius: 15px;
+    box-shadow: 
+        0 4px 15px rgba(0,0,0,0.1),
+        0 0 20px rgba(136, 216, 176, 0.2),
+        inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.user-avatar {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 5px solid #fff;
+    box-shadow: 
+        0 4px 15px rgba(0,0,0,0.3),
+        0 0 25px rgba(136, 216, 176, 0.6);
+}
+
+.online-dot {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 18px;
+    height: 14px;
+    background: #00cc66;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00cc66, 0 0 15px rgba(0,204,102,0.5);
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name {
+    font-size: 12px;
+    font-weight: bold;
+    color: #1a5a8a;
+}
+
+.user-status {
+    font-size: 10px;
+    color: #2a8a4a;
+}
+
+/* Winamp Panel Estilo Frutiger Aero Aqua */
+.winamp-panel {
+    background: linear-gradient(135deg, rgba(168, 230, 207, 0.85) 0%, rgba(136, 216, 176, 0.75) 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 15px rgba(0,0,0,0.2),
+        0 0 25px rgba(136, 216, 176, 0.4),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+    border: 1px solid rgba(136, 216, 176, 0.5);
+}
+
+.winamp-title {
+    background: linear-gradient(180deg, #5ab890 0%, #3a8870 100%);
+    color: #fff;
+    font-size: 11px;
+    padding: 6px 10px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.winamp-body {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.cd-cover {
+    width: 70px;
+    height: 70px;
+    background: conic-gradient(from 0deg, #a8e6cf, #88d8b0, #b4f8c8, #7ec8c8, #a8e6cf, #88d8b0);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    animation: spin 3s linear infinite;
+    box-shadow: 
+        0 0 20px rgba(136, 216, 176, 0.9),
+        0 0 40px rgba(136, 216, 176, 0.5),
+        inset 0 0 15px rgba(255,255,255,0.6);
+    border: 4px solid rgba(255,255,255,0.8);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.track-name {
+    color: #2a6a5a;
+    font-size: 10px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-shadow: 0 0 5px rgba(136, 216, 176, 0.5);
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.winamp-eq {
+    display: flex;
+    gap: 3px;
+    height: 24px;
+    align-items: flex-end;
+    padding: 4px 8px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 4px;
+}
+
+.winamp-eq span {
+    width: 5px;
+    background: linear-gradient(to top, #5ab890, #88d8b0, #a8e6cf);
+    border-radius: 2px;
+    animation: eq 0.5s ease-in-out infinite alternate;
+    box-shadow: 0 0 8px rgba(136, 216, 176, 0.8);
+}
+
+.winamp-eq span:nth-child(1) { height: 40%; animation-delay: 0s; }
+.winamp-eq span:nth-child(2) { height: 70%; animation-delay: 0.1s; }
+.winamp-eq span:nth-child(3) { height: 50%; animation-delay: 0.2s; }
+.winamp-eq span:nth-child(4) { height: 80%; animation-delay: 0.15s; }
+.winamp-eq span:nth-child(5) { height: 60%; animation-delay: 0.25s; }
+
+@keyframes eq {
+    0% { transform: scaleY(0.5); }
+    100% { transform: scaleY(1); }
+}
+
+.winamp-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.winamp-buttons button {
+    background: linear-gradient(180deg, #ffffff 0%, #e8f8f4 50%, #d0f0e8 100%);
+    border: 1px solid rgba(136, 216, 176, 0.6);
+    color: #2a6a5a;
+    padding: 6px 14px;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.2s;
+    box-shadow: 
+        0 2px 4px rgba(0,0,0,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.winamp-buttons button:hover {
+    background: linear-gradient(180deg, #a8e6cf 0%, #88d8b0 100%);
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 15px rgba(136, 216, 176, 0.6),
+        0 2px 4px rgba(0,0,0,0.1);
+}
+
+.winamp-buttons button:active {
+    transform: scale(0.95);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Categorías Panel */
+.categories-panel, .cart-panel {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(168, 216, 176, 0.4);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+/* Carrito Items */
+.cart-items {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+    font-size: 9px;
+}
+
+.cart-empty {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 6px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 3px;
+    margin-bottom: 3px;
+}
+
+.cart-item-info {
+    flex: 1;
+    overflow: hidden;
+}
+
+.cart-item-name {
+    color: #1a5a8a;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+    font-size: 9px;
+}
+
+.cart-item-qty {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-top: 2px;
+}
+
+.cart-item-qty button {
+    background: #88d8b0;
+    border: none;
+    border-radius: 3px;
+    width: 16px;
+    height: 14px;
+    font-size: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cart-item-qty button:hover {
+    background: #5ab890;
+}
+
+.cart-item-qty input {
+    width: 28px;
+    height: 16px;
+    border: 1px solid #a8d8e8;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 9px;
+    color: #1a5a8a;
+    font-weight: bold;
+}
+
+.cart-item-price {
+    color: #666;
+    font-size: 9px;
+    margin-top: 2px;
+}
+
+.cart-item-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-left: 4px;
+}
+
+.cart-item-remove {
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    width: 18px;
+    height: 14px;
+    font-size: 10px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.cart-item-remove:hover {
+    background: #ff4040;
+}
+
+.panel-title {
+    font-size: 11px;
+    font-weight: bold;
+    color: #1a5a8a;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c8e8f0;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.category-list button {
+    background: linear-gradient(180deg, #fff 0%, #e8f4f8 100%);
+    border: 1px solid rgba(168, 216, 176, 0.4);
+    padding: 8px 12px;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+    text-align: left;
+    transition: all 0.2s;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.8);
+}
+
+.category-list button:hover {
+    background: linear-gradient(180deg, #a8e6cf 0%, #88d8b0 100%);
+    border-color: #88d8b0;
+    transform: translateX(3px);
+    box-shadow: 0 0 10px rgba(136, 216, 176, 0.4);
+}
+
+.category-list button.active {
+    background: linear-gradient(180deg, #ff6b9d 0%, #ff4081 100%) !important;
+    border-color: #ff0080 !important;
+    color: #fff !important;
+    font-weight: bold;
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.5), inset 0 1px 2px rgba(255,255,255,0.4);
+}
+
+/* Carrito */
+.cart-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: linear-gradient(180deg, #88d8b0 0%, #5ab890 100%);
+    border: none;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.2s;
+    box-shadow: 
+        inset 0 2px 4px rgba(255,255,255,0.4),
+        0 4px 8px rgba(90, 184, 144, 0.4);
+}
+
+.checkout-btn:hover {
+    background: linear-gradient(180deg, #a8e6cf 0%, #88d8b0 100%);
+    transform: translateY(-2px);
+    box-shadow: 
+        inset 0 2px 4px rgba(255,255,255,0.5),
+        0 6px 15px rgba(136, 216, 176, 0.5);
+}
+
+/* Área Principal */
+.main-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Panel Estilo Vista */
+.welcome-panel, .products-panel {
+    background: var(--gradient-aero);
+    border: 1px solid #a8d8e8;
+    border-radius: 6px;
+    box-shadow: var(--shadow-vista);
+    overflow: hidden;
+}
+
+.panel-header {
+    background: linear-gradient(180deg, #d4e9f7 0%, #a8d8ea 100%);
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #1a5a8a;
+    border-bottom: 1px solid #88b8d0;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+.chat-messages {
+    height: 60px;
+    overflow-y: auto;
+    font-size: 11px;
+}
+
+.system-msg {
+    color: #2a7a9a;
+    margin: 3px 0;
+    font-style: italic;
+}
+
+.user-msg {
+    color: #333;
+    margin: 3px 0;
+    padding-left: 10px;
+    border-left: 2px solid #88d8b0;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+    padding: 10px;
+    min-height: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Product Card Estilo Vista */
+.vista-card {
+    background: linear-gradient(180deg, #fff 0%, #f0f8ff 100%);
+    border: 1px solid #a8d8e8;
+    border-radius: 6px;
+    padding: 8px;
+    text-align: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.vista-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-vista), var(--glow-aqua);
+    border-color: #88d8b0;
+}
+
+.vista-card-img {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: rgba(200, 240, 230, 0.3);
+}
+
+.vista-card-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.vista-card-emoji {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.vista-card h4 {
+    font-size: 10px;
+    color: #1a5a8a;
+    margin: 3px 0;
+}
+
+.vista-card .price {
+    font-size: 12px;
+    color: #2a8a4a;
+    font-weight: bold;
+}
+
+.vista-card .tag {
+    font-size: 8px;
+    color: #ff0090;
+    text-transform: uppercase;
+}
+
+.vista-card button {
+    margin-top: 5px;
+    width: 100%;
+    background: linear-gradient(180deg, #88d8b0 0%, #5ab890 100%);
+    border: 1px solid #3a8850;
+    color: #fff;
+    font-size: 9px;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.vista-card button:hover {
+    background: linear-gradient(180deg, #a8e6cf 0%, #88d8b0 100%);
+}
+
+/* Glow Products */
+.glow-product {
+    border-color: #88ff88 !important;
+    background: linear-gradient(180deg, #e8fff0, #d0ffe0) !important;
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+.glow-indicator {
+    font-size: 8px;
+    color: #00cc00;
+    text-shadow: 0 0 5px #00cc00;
+    animation: blink 1s infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 5px #88ff88; }
+    50% { box-shadow: 0 0 15px #88ff88, 0 0 25px rgba(136,255,136,0.5); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Status Bar */
+.status-bar {
+    background: linear-gradient(180deg, #d4e9f7 0%, #a8d8ea 100%);
+    padding: 4px 12px;
+    font-size: 10px;
+    color: #1a5a8a;
+    border-top: 1px solid #88b8d0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Footer Estilo Windows Vista */
+.window-footer {
+    background: linear-gradient(180deg, #e8f8f4 0%, #c8f0e8 100%);
+    border-top: 2px solid #88d8b0;
+    padding: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 20px;
+    gap: 20px;
+}
+
+.footer-section {
+    text-align: center;
+    flex: 1;
+}
+
+.footer-section h4 {
+    font-size: 11px;
+    color: #1a5a4a;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.footer-section p {
+    font-size: 9px;
+    color: #3a7a6a;
+    margin: 2px 0;
+}
+
+.footer-bottom {
+    background: linear-gradient(180deg, #88d8b0 0%, #5ab890 100%);
+    padding: 6px 0;
+    border-top: 1px solid #3a8860;
+}
+
+.footer-bottom marquee {
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Scrollbar Estilo Vista */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e8f4f8;
+    border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #a8d8ea, #88c8d0);
+    border-radius: 7px;
+    border: 2px solid #e8f4f8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #88d8b0, #68b890);
+}
+
+/* Welcome Panel */
+.welcome-panel {
+    background: var(--gradient-aero);
+    border: 1px solid #a8d8e8;
+    border-radius: 6px;
+    box-shadow: var(--shadow-vista);
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.welcome-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome-content h2 {
+    color: #1a5a8a;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.welcome-content p {
+    color: #3a7a6a;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.welcome-tagline {
+    font-style: italic;
+    color: #ff0090 !important;
+    margin: 15px 0 !important;
+}
+
+.welcome-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.welcome-buttons button {
+    background: linear-gradient(180deg, #88d8b0 0%, #5ab890 100%);
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.welcome-buttons button:hover {
+    background: linear-gradient(180deg, #a8e6cf 0%, #88d8b0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(136, 216, 176, 0.5);
+}
+
+/* Contact Panel */
+.contact-panel, .orders-panel {
+    background: var(--gradient-aero);
+    border: 1px solid #a8d8e8;
+    border-radius: 6px;
+    box-shadow: var(--shadow-vista);
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.contact-content, .orders-content {
+    padding: 15px;
+}
+
+.contact-content p {
+    color: #1a5a8a;
+    font-size: 12px;
+    margin: 8px 0;
+}
+
+.contact-content hr {
+    border: none;
+    border-top: 1px solid #a8d8e8;
+    margin: 15px 0;
+}
+
+/* Navbar active state */
+.navbar-menu a.active {
+    background: linear-gradient(180deg, #ffffff 0%, #e8f8f4 100%);
+    border-color: #5ab890;
+    box-shadow: 0 0 15px rgba(136, 216, 176, 0.5);
+}
+
+/* Search input */
+.navbar-search input {
+    padding: 6px 12px;
+    border: 1px solid #88d8b0;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.8);
+    font-size: 11px;
+    width: 150px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.navbar-search input:focus {
+    width: 180px;
+    border-color: #5ab890;
+    box-shadow: 0 0 10px rgba(136, 216, 176, 0.5);
+}
