@@ -360,6 +360,8 @@ body {
     border: 2px solid #88d8b0;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 25px rgba(136, 216, 176, 0.3);
+    z-index: 999;
+}
     z-index: 100;
     animation: windowFloat 6s ease-in-out infinite;
     backdrop-filter: blur(10px);
@@ -385,6 +387,112 @@ body {
     font-weight: bold;
     text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.skin-btn {
+    background: linear-gradient(180deg, #9c27b0 0%, #6a1b9a 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.skin-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #9c27b0;
+}
+
+.skin-btn-body {
+    background: linear-gradient(180deg, #9c27b0 0%, #6a1b9a 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 5px;
+}
+
+.skin-btn-body:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #9c27b0;
+}
+
+.skin-menu {
+    position: absolute;
+    top: 180px;
+    right: 20px;
+    background: #2a2a2a;
+    border: 1px solid #555;
+    border-radius: 5px;
+    z-index: 1001;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.skin-option {
+    padding: 8px 15px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.skin-option:hover {
+    background: #444;
+}
+
+/* SKINS */
+.winamp-float.skin-gengar .winamp-float-title {
+    background: linear-gradient(180deg, #7b4dff 0%, #4a1f99 100%);
+}
+
+.winamp-float.skin-gengar .winamp-float-body {
+    background: rgba(20, 10, 40, 0.85);
+    border-radius: 0 0 15px 15px;
+}
+
+.winamp-float.skin-gengar .winamp-float-track {
+    color: #b388ff;
+    text-shadow: 0 0 10px #7b4dff;
+}
+
+.winamp-float.skin-gengar .winamp-eq-mini span {
+    background: linear-gradient(to top, #7b4dff, #b388ff);
+    box-shadow: 0 0 5px #7b4dff;
+}
+
+.winamp-float.skin-gengar button {
+    background: linear-gradient(180deg, #7b4dff 0%, #4a1f99 100%);
+    border: 1px solid #9c6aff;
+}
+
+.winamp-float.skin-gengar button:hover {
+    background: linear-gradient(180deg, #9c6aff 0%, #7b4dff 100%);
+}
+
+.winamp-float.skin-neon .winamp-float-title {
+    background: linear-gradient(180deg, #ff00ff 0%, #9900cc 100%);
+}
+
+.winamp-float.skin-neon .winamp-float-body {
+    background: linear-gradient(180deg, #1a001a 0%, #0a000a 100%);
+}
+
+.winamp-float.skin-gold .winamp-float-title {
+    background: linear-gradient(180deg, #ffd700 0%, #b8860b 100%);
+}
+
+.winamp-float.skin-gold .winamp-float-body {
+    background: linear-gradient(180deg, #2a2a1a 0%, #1a1a0a 100%);
 }
 
 .winamp-float-controls {
@@ -427,6 +535,72 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    background: linear-gradient(180deg, #3a8870 0%, #2a5a45 100%);
+    border-radius: 0 0 10px 10px;
+    flex: 1;
+}
+
+/* Skin Gengar con imagen de fondo */
+.winamp-float.skin-gengar {
+    background-image: 
+        linear-gradient(180deg, rgba(20, 10, 40, 0.85) 0%, rgba(40, 20, 60, 0.9) 100%),
+        url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.winamp-float.skin-gengar .winamp-float-body {
+    background: rgba(15, 5, 25, 0.9);
+    border-radius: 0 0 15px 15px;
+}
+
+.winamp-float.skin-gengar .winamp-float-track {
+    color: #e0b0ff;
+    text-shadow: 0 0 8px #9c27b0, 0 0 15px #7b1fa2;
+    font-weight: bold;
+}
+
+.winamp-float.skin-gengar .cd-cover-mini {
+    background: radial-gradient(circle, #7b4dff 0%, #4a1f99 50%, #1a0a2a 100%);
+    border: 2px solid #9c27b0;
+    box-shadow: 0 0 20px #7b4dff, 0 0 40px rgba(123, 77, 255, 0.5);
+}
+
+.winamp-float.skin-gengar .winamp-eq-mini span {
+    background: linear-gradient(to top, #e040fb, #aa00ff, #e040fb);
+    box-shadow: 0 0 8px #9c27b0;
+}
+
+.winamp-float.skin-gengar .winamp-float-buttons button,
+.winamp-float.skin-gengar .winamp-volume button,
+.winamp-float.skin-gengar #volume-slider {
+    background: linear-gradient(180deg, #6a1b9a 0%, #4a148c 100%);
+    color: #e1bee7;
+    border: 1px solid #9c27b0;
+}
+
+.winamp-float.skin-gengar .winamp-float-buttons button:hover,
+.winamp-float.skin-gengar .winamp-volume button:hover {
+    background: linear-gradient(180deg, #8e24aa 0%, #6a1b9a 100%);
+    box-shadow: 0 0 10px #9c27b0;
+}
+
+.winamp-float.skin-gengar #volume-slider {
+    -webkit-appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #4a148c, #7b1fa2);
+}
+
+.winamp-float.skin-gengar #volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e040fb;
+    cursor: pointer;
+    box-shadow: 0 0 8px #9c27b0;
 }
 
 .cd-cover-mini {
@@ -498,6 +672,65 @@ body {
 .winamp-float-buttons button:hover {
     background: linear-gradient(180deg, #a8e6cf 0%, #88d8b0 100%);
     box-shadow: 0 0 10px rgba(136, 216, 176, 0.5);
+}
+
+.winamp-volume {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 15px;
+}
+
+#mute-btn-float {
+    background: linear-gradient(180deg, #fff 0%, #e8f8f4 100%);
+    border: 1px solid #88d8b0;
+    color: #2a6a5a;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+#mute-btn-float:hover {
+    background: linear-gradient(180deg, #a8e6cf 0%, #88d8b0 100%);
+    box-shadow: 0 0 8px rgba(136, 216, 176, 0.5);
+}
+
+#volume-slider {
+    width: 80px;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(90deg, #88d8b0, #5ab890);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(180deg, #5ab890 0%, #3a8870 100%);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(180deg, #5ab890 0%, #3a8870 100%);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .msn-title-bar {
@@ -1026,8 +1259,8 @@ body {
 .user-panel {
     display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 18px;
+    gap: 12px;
+    padding: 12px;
     background: linear-gradient(135deg, rgba(168, 230, 207, 0.9) 0%, rgba(200, 240, 220, 0.8) 100%);
     border: 1px solid rgba(136, 216, 176, 0.5);
     border-radius: 15px;
@@ -1035,12 +1268,35 @@ body {
         0 4px 15px rgba(0,0,0,0.1),
         0 0 20px rgba(136, 216, 176, 0.2),
         inset 0 1px 0 rgba(255,255,255,0.5);
+    min-height: 70px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.user-panel.expanded {
+    flex-direction: column;
+    padding: 20px;
+    min-height: 200px;
+}
+
+.user-panel.expanded .user-avatar {
+    width: 120px;
+    height: 120px;
+}
+
+.user-panel.expanded .user-name {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.user-panel.expanded .user-status {
+    font-size: 14px;
 }
 
 .user-avatar {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     flex-shrink: 0;
 }
 
@@ -1048,11 +1304,36 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
-    border: 5px solid #fff;
+    border-radius: 10px;
+    border: 3px solid #fff;
     box-shadow: 
-        0 4px 15px rgba(0,0,0,0.3),
-        0 0 25px rgba(136, 216, 176, 0.6);
+        0 2px 8px rgba(0,0,0,0.2),
+        0 0 15px rgba(136, 216, 176, 0.4);
+}
+
+.user-panel-toggle {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255,255,255,0.7);
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.user-panel-toggle:hover {
+    background: #fff;
+}
+
+.user-panel.expanded .user-panel-toggle {
+    transform: rotate(180deg);
 }
 
 .online-dot {
@@ -1069,17 +1350,23 @@ body {
 
 .user-details {
     flex: 1;
+    overflow: hidden;
 }
 
 .user-name {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
-    color: #1a5a8a;
+    color: #0a3d62;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .user-status {
-    font-size: 10px;
-    color: #2a8a4a;
+    font-size: 12px;
+    color: #0e6655;
+    font-weight: 500;
 }
 
 /* Winamp Panel Estilo Frutiger Aero Aqua */

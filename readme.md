@@ -1,23 +1,27 @@
 # URBAN D.N.A - Tienda Online Y2K Style
 
-Tienda virtual de modas urbanas con interfaz estilo Windows 98/Vista Y2K. Proyecto de e-commerce con estética retro futuristic.
+Tienda virtual de modas urbanas con interfaz estilo Windows 98/Vista Y2K. Proyecto de e-commerce con estética retro futuristica.
 
 ## Características
 
 - 🎨 **Diseño Y2K/Frutiger Aero**: Interfaz inspirada en Windows 98/Vista con estética nostalgic
 - 🛒 **Carrito de Compras**: Sistema de carrito funcional con agregar/eliminar productos
-- 📂 **Categorías**: Filtro por emo, punk, goth, urban
+- 📂 **Categorías**: Filtro por emo, punk, goth, urban, **hiphop**
 - 🔍 **Buscador**: Filtrado de productos en tiempo real
 - 🪟 **Ventanas Flotantes**: MSN Messenger y Winamp estilo Windows XP
-- 🎵 **Audio Reactivo**: Fondo que reacciona a la música
+- 🎵 **Reproductor de Música**: Playlist con múltiples canciones
+- 🎮 **Skins Winamp**: Sistema de temas (Default, Gengar, Neon, Gold)
+- ⭐ **Panel de Usuario**: Expandible/contraible
+- 🔊 **Audio Reactivo**: Fondo que reacciona a la música
 - ⏰ **Modo Día/Noche**: Fondo dinámico según la hora
 
 ## Productos Disponibles
 
-- Pulseras Neón, Poleras, Pantalones
-- Accesorios: Collares, anillos, parches
-- Calzado: Botines plataforma, gorras
-- Maquillaje: Labial negro
+- **EMO**: Pulseras neón, poleras negativas, gel Caprice, labial negro
+- **PUNK**: Cinturón cadenas, pantalones, parches Ramones
+- **GOTH**: Botines plataforma, collares de púas, anillos calavera
+- **URBAN**: Gorras Nike, accesorios callejeros
+- **HIPHOP**: Gorras NY, cadenas, Air Force 1, bomber, snapbacks
 
 ## Estructura
 
@@ -49,6 +53,8 @@ m4c11/
 - **Colección**: Ver productos
 - **Pedidos**: Historial de pedidos
 - **Contacto**: Información de contacto
+- **Winamp**: Reproductor de música flotante con controls de play/pause, anterior, siguiente
+- **Skins**: Botón 🎨 en el reproductor para cambiar tema (Gengar, Neon, Gold)
 
 ## Descuentos
 
@@ -73,4 +79,4 @@ m4c11/
 
 ---
 
-⭐ 2007 - 2024 URBAN D.N.A Chile ⭐
+⭐ 2007 - 2026 URBAN D.N.A Chile ⭐

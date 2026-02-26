@@ -43,21 +43,36 @@
     </div>
 
     <!-- 🎵 Winamp - Ventana Flotante debajo de MSN -->
-    <div class="winamp-float" id="winamp-window">
-        <div class="winamp-float-title" onmousedown="startDrag(event, 'winamp-window')">♪ Winamp 5.5</div>
+    <div class="winamp-float" id="winamp-window" style="transform: none; position: fixed; left: 979.8px; top: 210.721px; width: 200px; height: 150px;">
+        <div class="winamp-float-title" onmousedown="startDrag(event, 'winamp-window')">
+            ♪ Winamp 5.5
+        </div>
         <div class="winamp-float-controls">
             <button onclick="minimizeWindow('winamp-window')" title="Minimizar">_</button>
             <button onclick="closeWindow('winamp-window')" title="Cerrar">×</button>
         </div>
+        <div class="skin-menu" id="skin-menu" style="display: none;">
+            <div class="skin-option" onclick="changeSkin('default')">🎵 Default</div>
+            <div class="skin-option" onclick="changeSkin('gengar')">👻 Gengar</div>
+            <div class="skin-option" onclick="changeSkin('neon')">💜 Neon</div>
+            <div class="skin-option" onclick="changeSkin('gold')">✨ Gold</div>
+        </div>
         <div class="winamp-float-body">
             <div class="cd-cover-mini"></div>
-            <div class="winamp-float-track">Kawaii Kaiwai</div>
+            <button class="skin-btn-body" onclick="toggleSkinMenu()" title="Cambiar Skin">🎨</button>
+            <div class="winamp-float-track" id="winamp-track-title">Cargando...</div>
             <div class="winamp-eq-mini">
                 <span></span><span></span><span></span><span></span><span></span>
             </div>
             <div class="winamp-float-buttons">
+                <button onclick="prevTrack()" title="Anterior">⏮</button>
                 <button id="play-btn-float">▶</button>
                 <button id="pause-btn-float">❚❚</button>
+                <button onclick="nextTrack()" title="Siguiente">⏭</button>
+            </div>
+            <div class="winamp-volume">
+                <button id="mute-btn-float" onclick="toggleMute()" title="Silenciar">🔊</button>
+                <input type="range" id="volume-slider" min="0" max="100" value="40" onchange="setVolume(this.value)" oninput="setVolume(this.value)">
             </div>
         </div>
         <!-- Handle de redimensión -->
@@ -74,37 +89,37 @@
         </div>
         <div class="start-menu-content">
             <div class="start-menu-column">
-                <a href="#" class="start-menu-item">
+                <a href="#" class="start-menu-item" data-section="inicio">
                     <span class="start-menu-icon">🏠</span>
                     <span>Inicio</span>
                 </a>
-                <a href="#" class="start-menu-item">
+                <a href="#" class="start-menu-item" data-section="tienda">
                     <span class="start-menu-icon">🛍️</span>
                     <span>Tienda</span>
                 </a>
-                <a href="#" class="start-menu-item">
+                <a href="#" class="start-menu-item" data-section="coleccion">
                     <span class="start-menu-icon">👗</span>
                     <span>Colección</span>
                 </a>
-                <a href="#" class="start-menu-item">
+                <a href="#" class="start-menu-item" data-section="pedidos">
                     <span class="start-menu-icon">📦</span>
                     <span>Pedidos</span>
                 </a>
-                <a href="#" class="start-menu-item">
+                <a href="#" class="start-menu-item" data-section="contacto">
                     <span class="start-menu-icon">📞</span>
                     <span>Contacto</span>
                 </a>
             </div>
             <div class="start-menu-column">
-                <a href="#" class="start-menu-item">
+                <a href="#" class="start-menu-item" onclick="toggleAudio(); return false;">
                     <span class="start-menu-icon">🎵</span>
                     <span>Música</span>
                 </a>
-                <a href="#" class="start-menu-item">
+                <a href="#" class="start-menu-item" onclick="alert('🎮 Sección de juegos coming soon!'); return false;">
                     <span class="start-menu-icon">🎮</span>
                     <span>Juegos</span>
                 </a>
-                <a href="#" class="start-menu-item">
+                <a href="#" class="start-menu-item" onclick="toggleStartMenu(); alert('⚙️ Configuración: URBAN D.N.A v1.0'); return false;">
                     <span class="start-menu-icon">⚙️</span>
                     <span>Configuración</span>
                 </a>
@@ -189,7 +204,8 @@
             <aside class="sidebar-left">
                 
                 <!-- Usuario MSN -->
-                <div class="user-panel">
+                <div class="user-panel" id="user-panel">
+                    <button class="user-panel-toggle" onclick="toggleUserPanel()" title="Expandir/Colapsar">▼</button>
                     <div class="user-avatar">
                         <img src="https://i.pinimg.com/736x/e7/85/28/e78528e8c86ff6fc4e6a8a688ae90607.jpg" alt="Avatar">
                         <span class="online-dot"></span>
@@ -209,6 +225,7 @@
                         <button onclick="filter('punk')"> Punk</button>
                         <button onclick="filter('goth')"> Goth</button>
                         <button onclick="filter('urban')"> Urban</button>
+                        <button onclick="filter('hiphop')"> HipHop</button>
                     </div>
                 </div>
 

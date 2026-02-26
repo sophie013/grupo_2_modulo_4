@@ -18,11 +18,43 @@ const productos = [
     { id: 9, nombre: "Gel Caprice", precio: 4500, cat: "emo", img: "https://static.salcobrandonline.cl/spree/products/19037/large_webp/5990511.webp?1641480106" },
     { id: 10, nombre: "Anillo Calavera", precio: 3000, cat: "goth", img: "https://static.wixstatic.com/media/e9f324_12376b6c13d84f92954c79fceb6ceac5~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpgÍ" },
     { id: 11, nombre: "Parche Ramones", precio: 2500, cat: "punk", img: "https://http2.mlstatic.com/D_NQ_NP_883887-MLC69691811049_052023-O.webp" },
-    { id: 12, nombre: "Pulsera Cuero", precio: 5000, cat: "goth", img: "https://http2.mlstatic.com/D_NQ_NP_883887-MLC69691811049_052023-O.webp" }
+    { id: 12, nombre: "Pulsera Cuero", precio: 5000, cat: "goth", img: "https://http2.mlstatic.com/D_NQ_NP_883887-MLC69691811049_052023-O.webp" },
+    
+    // ===== HIP HOP =====
+    { id: 13, nombre: "Gorra NY Baseball", precio: 12000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_687465-MLA47922356531_102021-O.webp" },
+    { id: 14, nombre: "Cadenas Plata 50cm", precio: 25000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_617465-MLA47922356531_102021-O.webp" },
+    { id: 15, nombre: "Polera Oversized Blank", precio: 15000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_2X_847372-CBT311772481228_122025-T.webp" },
+    { id: 16, nombre: "Pantalón Baggy Jeans", precio: 22000, cat: "hiphop", img: "https://m.media-amazon.com/images/I/71II8rGM6JL._AC_UY1000_.jpg" },
+    { id: 17, nombre: "Zapatillas Air Force 1", precio: 85000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_2X_847372-CBT311772481228_122025-T.webp" },
+    { id: 18, nombre: "Bufanda Graffiti", precio: 8000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_687465-MLA47922356531_102021-O.webp" },
+    { id: 19, nombre: "Reloj Casio Digital", precio: 18000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_617465-MLA47922356531_102021-O.webp" },
+    { id: 20, nombre: "Chaqueta Bomber Negro", precio: 35000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_847372-CBT311772481228_122025-T.webp" },
+    { id: 21, nombre: "Gorra Snapback", precio: 10000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_687465-MLA47922356531_102021-O.webp" },
+    { id: 22, nombre: "Lentes Oakley Frogskin", precio: 45000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_617465-MLA47922356531_102021-O.webp" },
+    { id: 23, nombre: "Pulsera Cordón Colores", precio: 3000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_847372-CBT311772481228_122025-T.webp" },
+    { id: 24, nombre: "Pendientes Aro Grande", precio: 6000, cat: "hiphop", img: "https://http2.mlstatic.com/D_NQ_NP_687465-MLA47922356531_102021-O.webp" }
 ];
 
 // Carrito como objeto: { id_producto: { producto, cantidad } }
 let carrito = {};
+
+// =====================
+// 🎵 PLAYLIST WINAMP
+// =====================
+const playlist = [
+    { title: "PiKi - Kawaii Kaiwai (Bisque Doll ED)", src: "https://res.cloudinary.com/dj0cbwsvk/video/upload/v1771958300/PiKi_-_Kawaii_Kaiwai_-_Sono_Bisque_Doll_wa_Koi_wo_Suru_Season_2_ED__mp3.pm_rreyll.mp3" },
+    { title: "Vanilla - Ice Ice Baby Style", src: "https://res.cloudinary.com/dj0cbwsvk/video/upload/v1772121422/05_-_Vanilla_wmw1rt.mp3" },
+    { title: "AC/DC - T.N.T.", src: "https://res.cloudinary.com/dj0cbwsvk/video/upload/v1772121422/High_Voltage_-_105_-_T.N.T._xcd9n7.mp3" },
+    { title: "Placebo - Pure Morning", src: "https://res.cloudinary.com/dj0cbwsvk/video/upload/v1772121422/Placebo_-_Pure_Morning_ac4jv2.mp3" },
+    { title: "Shamanes - Amor de Luto", src: "https://res.cloudinary.com/dj0cbwsvk/video/upload/v1772121423/Shamanes_-_Amor_de_luto_hkwyil.mp3" },
+    { title: "Tiro de Gracia - El Juego Verdadero", src: "https://res.cloudinary.com/dj0cbwsvk/video/upload/v1772121423/Tiro_de_Gracia_-_El_Juego_Verdadero_gaybdr.mp3" },
+    { title: "Metallica - Master of Puppets", src: "https://res.cloudinary.com/dj0cbwsvk/video/upload/v1772121423/Metallica_-_Master_of_Puppets_-_02_-_Master_of_Puppets_g8m5lo.mp3" },
+    { title: "Alex Gargolas - Soy Una Gargola", src: "https://res.cloudinary.com/dj0cbwsvk/video/upload/v1772121424/Alex_Gargolas_Randy_-_Soy_Una_Gargola_Extended_f1j3mg.mp3" },
+    { title: "Zion & Jowell - Fuera Del Planeta", src: "https://res.cloudinary.com/dj0cbwsvk/video/upload/v1772121424/Eloy_Zion_Jowell_Randy_-_Fuera_Del_Planeta_Remix_Andreex_Hype_Intro_95_Bpm_95_h7nn3y.mp3" }
+];
+
+let currentTrack = 0;
+let isPlaylistMode = true;
 
 // =====================
 // 🪟 CONTROL DE VENTANAS FLOTANTES
@@ -293,6 +325,83 @@ const pauseBtnFloat = document.getElementById("pause-btn-float");
 const audioGlow = document.getElementById("audio-glow");
 const timeOverlay = document.getElementById("time-overlay");
 
+// 🎵 FUNCIONES DE PLAYLIST
+function loadTrack(index) {
+    if (index >= 0 && index < playlist.length) {
+        currentTrack = index;
+        audioPlayer.src = playlist[currentTrack].title;
+        updateTrackDisplay();
+    }
+}
+
+function playTrack(index) {
+    if (index !== undefined) {
+        currentTrack = index;
+    }
+    audioPlayer.src = playlist[currentTrack].src;
+    audioPlayer.play().catch(e => console.log('Error al reproducir:', e));
+    updateTrackDisplay();
+}
+
+function nextTrack() {
+    currentTrack = (currentTrack + 1) % playlist.length;
+    playTrack();
+}
+
+function prevTrack() {
+    currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+    playTrack();
+}
+
+function updateTrackDisplay() {
+    const trackElement = document.getElementById('winamp-track-title');
+    const trackElements = document.querySelectorAll('.winamp-float-track, .track-name');
+    if (trackElement) trackElement.textContent = playlist[currentTrack].title;
+    trackElements.forEach(el => {
+        if (el) el.textContent = playlist[currentTrack].title;
+    });
+}
+
+// Auto-play next song when current ends
+audioPlayer.addEventListener('ended', nextTrack);
+
+// 🎨 SKINS WINAMP
+function toggleSkinMenu() {
+    const menu = document.getElementById('skin-menu');
+    if (menu) {
+        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+}
+
+function changeSkin(skinName) {
+    const winamp = document.getElementById('winamp-window');
+    const menu = document.getElementById('skin-menu');
+    
+    // Remover todas las skins
+    winamp.classList.remove('skin-gengar', 'skin-neon', 'skin-gold');
+    
+    // Agregar la skin seleccionada
+    if (skinName !== 'default') {
+        winamp.classList.add('skin-' + skinName);
+    }
+    
+    // Cerrar menú
+    if (menu) {
+        menu.style.display = 'none';
+    }
+}
+
+// Cerrar menú al hacer clic fuera
+document.addEventListener('click', function(e) {
+    const menu = document.getElementById('skin-menu');
+    const skinBtn = document.querySelector('.skin-btn');
+    if (menu && skinBtn) {
+        if (!menu.contains(e.target) && !skinBtn.contains(e.target)) {
+            menu.style.display = 'none';
+        }
+    }
+});
+
 // Análisis de audio para reactividad
 let audioContext, analyser, dataArray;
 let audioInitialized = false;
@@ -422,6 +531,51 @@ function updateTimeOfDay() {
 // Volumen bajo
 audioPlayer.volume = 0.4;
 
+// =====================
+// 🔊 CONTROL DE VOLUMEN
+// =====================
+let previousVolume = 0.4;
+let isMuted = false;
+
+function setVolume(value) {
+    const volume = value / 100;
+    audioPlayer.volume = volume;
+    isMuted = false;
+    updateVolumeIcon();
+}
+
+function toggleMute() {
+    const muteBtn = document.getElementById('mute-btn-float');
+    const volumeSlider = document.getElementById('volume-slider');
+    
+    if (isMuted) {
+        audioPlayer.volume = previousVolume;
+        isMuted = false;
+        if (volumeSlider) volumeSlider.value = previousVolume * 100;
+    } else {
+        previousVolume = audioPlayer.volume;
+        audioPlayer.volume = 0;
+        isMuted = true;
+        if (volumeSlider) volumeSlider.value = 0;
+    }
+    updateVolumeIcon();
+}
+
+function updateVolumeIcon() {
+    const muteBtn = document.getElementById('mute-btn-float');
+    if (!muteBtn) return;
+    
+    if (audioPlayer.volume === 0 || isMuted) {
+        muteBtn.textContent = '🔇';
+    } else if (audioPlayer.volume < 0.3) {
+        muteBtn.textContent = '🔈';
+    } else if (audioPlayer.volume < 0.7) {
+        muteBtn.textContent = '🔉';
+    } else {
+        muteBtn.textContent = '🔊';
+    }
+}
+
 // Iniciar análisis inmediatamente para capturar el audio cuando reproduzca
 initAudioAnalyser();
 
@@ -445,7 +599,11 @@ audioPlayer.addEventListener('pause', () => {
 // =====================
 
 playBtnFloat?.addEventListener("click", () => {
-    audioPlayer.play();
+    if (audioPlayer.src) {
+        audioPlayer.play();
+    } else {
+        playTrack(0);
+    }
 });
 
 pauseBtnFloat?.addEventListener("click", () => {
@@ -454,7 +612,11 @@ pauseBtnFloat?.addEventListener("click", () => {
 
 // Floating Winamp controls
 playBtnFloat?.addEventListener("click", () => {
-    audioPlayer.play();
+    if (audioPlayer.src) {
+        audioPlayer.play();
+    } else {
+        playTrack(0);
+    }
 });
 
 pauseBtnFloat?.addEventListener("click", () => {
@@ -463,7 +625,11 @@ pauseBtnFloat?.addEventListener("click", () => {
 
 function toggleAudio() {
     if (audioPlayer.paused) {
-        audioPlayer.play();
+        if (audioPlayer.src) {
+            audioPlayer.play();
+        } else {
+            playTrack(0);
+        }
     } else {
         audioPlayer.pause();
     }
@@ -716,6 +882,12 @@ window.addEventListener("click", () => {
 initAudioAnalyser();
 requestAnimationFrame(analyzeAudio);
 
+// Cargar primera canción de la playlist
+loadTrack(0);
+
+// Aplicar skin de Gengar por defecto
+changeSkin('gengar');
+
 // =====================
 // 🧭 NAVEGACIÓN DEL NAVBAR
 // =====================
@@ -773,6 +945,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
+    // Event listeners para el start-menu
+    document.querySelectorAll('.start-menu-item').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const section = link.dataset.section;
+            if (section) {
+                showSection(section);
+            }
+            // Cerrar el menú después de hacer clic
+            const menu = document.getElementById('start-menu');
+            if (menu) {
+                menu.classList.remove('active');
+            }
+        });
+    });
 });
 
 // =====================
@@ -804,6 +992,14 @@ function buscarProductos(termino) {
 // =====================
 // 🚀 INICIALIZAR
 // =====================
+
+// Toggle User Panel
+function toggleUserPanel() {
+    const panel = document.getElementById('user-panel');
+    if (panel) {
+        panel.classList.toggle('expanded');
+    }
+}
 
 // Resaltar categoría "Todo" al inicio
 document.querySelectorAll('.category-list button').forEach(btn => {
